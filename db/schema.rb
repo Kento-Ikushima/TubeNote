@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_105028) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_26_033042) do
   create_table "folders", force: :cascade do |t|
     t.string "folder_name", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "followers", force: :cascade do |t|
@@ -45,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_105028) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "password", null: false
-    t.text "comment"
+    t.text "self_introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
