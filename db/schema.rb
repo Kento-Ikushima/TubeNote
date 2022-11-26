@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_26_033042) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_26_042113) do
   create_table "folders", force: :cascade do |t|
     t.string "folder_name", null: false
     t.integer "status", null: false
@@ -51,4 +51,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_033042) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "folders", "users"
+  add_foreign_key "followers", "users"
+  add_foreign_key "followings", "users"
+  add_foreign_key "tasks", "folders"
+  add_foreign_key "tasks", "users"
 end
