@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'tasks/index'
-  
+  resources :users, :tasks, :followings, :followers, :folders
   root to: 'tasks#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
