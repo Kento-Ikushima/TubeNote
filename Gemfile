@@ -42,7 +42,9 @@ gem "tzinfo-data"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+gem "bootstrap"
 gem "devise"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -70,6 +72,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "bootstrap"
+  
 
+  
 end
