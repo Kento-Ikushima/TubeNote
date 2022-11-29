@@ -2,7 +2,7 @@
   
     <% @tasks.each do |task| %>
       <iframe
-          src="https://www.youtube.com/embed/<%= task.url.last(11)%>" 
+          src="https://www.youtube.com/embed/<%= task.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
           frameborder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen
