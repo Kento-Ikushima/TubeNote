@@ -18,6 +18,12 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :self_introduction, "コメント" %><br />
+    <%= f.text_field :self_introduction, autofocus: true, autocomplete: "self_introduction" %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :password, "パスワード変更" %> <i>(変更したい場合)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
