@@ -1,2 +1,12 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>タスク一覧ページ</h1>
+  
+    <% @tasks.each do |task| %>
+      <iframe
+          src="https://www.youtube.com/embed/<%= task.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
+          frameborder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+      >
+      </iframe>
+      <%= task.description %>
+    <% end %>
