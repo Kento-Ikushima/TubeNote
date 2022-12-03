@@ -1,9 +1,9 @@
 <h1>新規タスク</h1>
-<%= form_for(@task) do |f| %>
+<%= form_for(@mytask) do |f| %>
   <div><%= f.label :url %></div>       
   <div><%= f.text_field :url %></div>  
   <div><%= f.label :description %></div>       
   <div><%= f.text_field :description %></div>  
   <div><%= f.submit %></div>             
 <% end %>
-<%= link_to '戻る', tasks_path %>
+<%= link_to '戻る', mytasks_path %>
