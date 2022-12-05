@@ -1,4 +1,5 @@
 class FoldersController < ApplicationController
+    skip_before_action :verify_authenticity_token
     def index
       @folders = Folder.where(user_id: current_user.id)
     end
