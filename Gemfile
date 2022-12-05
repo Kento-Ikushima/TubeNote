@@ -45,7 +45,7 @@ gem "bootsnap", require: false
 # gem "bootstrap"
 gem "devise"
 gem "enum_help"
-gem "ransack"gem "enum_help"
+gem "ransack"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
