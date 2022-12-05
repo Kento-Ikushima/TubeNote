@@ -1,0 +1,8 @@
+<h1>新しいフォルダ</h1>
+<%= form_for(@folder) do |f| %>
+  <div><%= f.label :folder_name %></div>       
+  <div><%= f.text_field :folder_name %></div>  
+  <%= select :status,:name,Folder.statuses.keys.to_a %>
+  <div><%= f.submit %></div> 
+  <input type="hidden" id="authenticity_token" name="authenticity_token"></input>    
+<% end %>

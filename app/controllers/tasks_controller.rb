@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   def index
-    open = Folder.select(:id).where(status:0)
-    @tasks = Task.where(folder_id:open)
+    @tasks = Task.where(user_id: current_user.id)
   end
 
   def create
