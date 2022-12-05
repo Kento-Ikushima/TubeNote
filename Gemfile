@@ -44,7 +44,7 @@ gem "tzinfo-data"
 gem "bootsnap", require: false
 # gem "bootstrap"
 gem "devise"
-
+gem "enum_help"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
