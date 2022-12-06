@@ -1,5 +1,9 @@
 <h1>全ユーザータスク一覧ページ</h1>
 
+<tr>
+  <th><%= sort_link(@q, :created_at, "作成日順") %></th>
+</tr></br>
+
 <!--検索フォーム-->
 <%= search_form_for @q, url: tasks_path do |f| %>
   <%= f.text_field :description_cont %>
