@@ -1,0 +1,6 @@
+ja:
+  enums:
+    folder:
+      status:
+        release: 公開
+        close: 非公開
