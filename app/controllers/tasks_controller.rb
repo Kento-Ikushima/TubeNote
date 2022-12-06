@@ -1,7 +1,13 @@
 class TasksController < ApplicationController
+  before_action :search
+
+  def search
+    release = Folder.select(:id).where(status:0)
+    @q = Task.where(folder_id:release).ransack(params[:q])
+  end
+    
   def index
-    open = Folder.select(:id).where(status:0)
-    @tasks = Task.where(folder_id:open)
+    @search_tasks = @q.result(distinct: true)
   end
 
   def create
