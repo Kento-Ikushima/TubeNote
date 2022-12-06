@@ -1,21 +1,23 @@
+<h1>自分タスク一覧ページ</h1>
+<%= link_to "アカウント編集", edit_user_registration_path %></br>
+
 <!--検索フォーム-->
 <%= search_form_for @q, url: my_tasks_path do |f| %>
   <%= f.text_field :description_cont %>
   <%= f.submit "検索" %>
 <% end %>
 
-<% if @qmytasks.present? %>
-  <% @qmytasks.each do |qmytask| %>
+<% if @search_mytasks.present? %>
+  <% @search_mytasks.each do |search_mytask| %>
     <iframe
-        src="https://www.youtube.com/embed/<%= qmytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
+        src="https://www.youtube.com/embed/<%= search_mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
         frameborder="0" 
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
       >
       </iframe>
-      <%= qmytask.description %>
+      <%= search_mytask.description %>
   <% end %>
 <% else %>
   <p>検索結果はありません</p>
 <% end %>
-

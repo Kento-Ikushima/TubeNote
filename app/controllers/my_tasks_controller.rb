@@ -2,12 +2,11 @@ class MyTasksController < ApplicationController
     before_action :search
 
     def search
-      @q = Task.ransack(params[:q])
+      @q = Task.where(user_id: current_user.id).ransack(params[:q])
     end
     
     def index
-      @mytasks = Task.where(user_id: current_user.id)    
-      @qmytasks = @q.result(distinct: true)
+      @search_mytasks = @q.result(distinct: true)
     end
     
     def create
