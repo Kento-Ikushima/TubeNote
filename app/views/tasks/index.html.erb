@@ -1,22 +1,23 @@
 <h1>全ユーザータスク一覧ページ</h1>
 
 <tr>
-  <th><%= sort_link(@q, :created_at, "作成日順") %></th>
-</tr><br />
+    <th><%= sort_link(@q, :created_at, "作成日順") %></th>
+</tr><br/>
 
 <!--検索フォーム-->
 <%= search_form_for @q, url: tasks_path do |f| %>
-  <%= f.text_field :description_cont %>
-  <%= f.submit "検索" %>
+<%= f.text_field :description_cont %>
+<%= f.submit "検索" %>
 <% end %>
-
-  <% @tasks.each do |task| %>
-    <iframe
-        src="https://www.youtube.com/embed/<%= task.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
-        frameborder="0" 
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-      >
-      </iframe>
-      <%= task.description %>
-  <% end %>
+<% if @tasks.empty? %>
+  <p>検索結果はありません</p>
+<% end %>
+<% @tasks.each do |task| %>
+<iframe
+    src="https://www.youtube.com/embed/<%= task.url.last(11)%>"
+    <!-- URl末尾のvideo_idの取得 -->
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen="allowfullscreen"></iframe>
+<%= task.description %>
+<% end %>
