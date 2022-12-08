@@ -1,20 +1,25 @@
 class TasksController < ApplicationController
-  before_action :search
+  # before_action :search
 
-  def search
-    release = Folder.select(:id).where(status:0)
-    @q = Task.where(folder_id:release).ransack(params[:q])
-  end
+  # def search
+  #   release = Folder.select(:id).where(status:0)
+  #   @q = Task.where(folder_id:release).ransack(params[:q])
+  # end
     
+  # localhost:3000/tasks
   def index
-    @search_tasks = @q.result(distinct: true)
+    @q = Task.ransack(params[:q])
+    @tasks = if params[:q]
+      # 検索の処理を行う
+      @q.result(distinct: true)
+    else
+      # 一覧を表示する
+      Task.all
+    end
   end
 
   def create
     @task = Task.new(task_params)
-    # url = params[:task][:url]
-    # url = url.last(11)
-    # @task.url = url
   end
 
   def new

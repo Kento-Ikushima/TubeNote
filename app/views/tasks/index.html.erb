@@ -2,7 +2,7 @@
 
 <tr>
   <th><%= sort_link(@q, :created_at, "作成日順") %></th>
-</tr></br>
+</tr><br />
 
 <!--検索フォーム-->
 <%= search_form_for @q, url: tasks_path do |f| %>
@@ -10,17 +10,13 @@
   <%= f.submit "検索" %>
 <% end %>
 
-<% if @search_tasks.present? %>
-  <% @search_tasks.each do |search_task| %>
+  <% @tasks.each do |task| %>
     <iframe
-        src="https://www.youtube.com/embed/<%= search_task.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
+        src="https://www.youtube.com/embed/<%= task.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
         frameborder="0" 
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
       >
       </iframe>
-      <%= search_task.description %>
+      <%= task.description %>
   <% end %>
-<% else %>
-  <p>検索結果はありません</p>
-<% end %>
