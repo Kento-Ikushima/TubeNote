@@ -11,17 +11,14 @@
   <%= f.submit "検索" %>
 <% end %>
 
-<% if @search_mytasks.present? %>
-  <% @search_mytasks.each do |search_mytask| %>
+
+  <% @mytasks.each do |mytask| %>
     <iframe
-        src="https://www.youtube.com/embed/<%= search_mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
+        src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
         frameborder="0" 
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
       >
       </iframe>
-      <%= search_mytask.description %>
+      <%= mytask.description %>
   <% end %>
-<% else %>
-  <p>検索結果はありません</p>
-<% end %>

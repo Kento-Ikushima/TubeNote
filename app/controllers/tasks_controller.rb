@@ -1,20 +1,14 @@
-class TasksController < ApplicationController
-  # before_action :search
-
-  # def search
-  #   release = Folder.select(:id).where(status:0)
-  #   @q = Task.where(folder_id:release).ransack(params[:q])
-  # end
-    
+class TasksController < ApplicationController    
   # localhost:3000/tasks
   def index
     @q = Task.ransack(params[:q])
-    @tasks = if params[:q]
+    if params[:q]
       # 検索の処理を行う
-      @q.result(distinct: true)
+      @tasks = @q.result(distinct: true)
     else
-      # 一覧を表示する
-      Task.all
+      # 一覧を表示する(公開設定フォルダの中身のみ)
+      release = Folder.select(:id).where(status:0)
+      @tasks = Task.where(folder_id:release)
     end
   end
 

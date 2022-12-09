@@ -1,12 +1,13 @@
 class MyTasksController < ApplicationController
-    before_action :search
-
-    def search
-      @q = Task.where(user_id: current_user.id).ransack(params[:q])
-    end
     
     def index
-      @search_mytasks = @q.result(distinct: true)
+      # debugger  todo:動かない
+      @q = Task.where(user_id: current_user.id).ransack(params[:q])
+      if params[:q]
+        @mytasks = @q.result(distinct: true)
+      else
+        @mytasks = current_user.tasks
+      end
     end
     
     def create
