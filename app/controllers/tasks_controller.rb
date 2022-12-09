@@ -1,14 +1,19 @@
-class TasksController < ApplicationController
+class TasksController < ApplicationController    
+  # localhost:3000/tasks
   def index
-    open = Folder.select(:id).where(status:0)
-    @tasks = Task.where(folder_id:open)
+    @q = Task.ransack(params[:q])
+    if params[:q]
+      # 検索の処理を行う
+      @tasks = @q.result(distinct: true)
+    else
+      # 一覧を表示する(公開設定フォルダの中身のみ)
+      release = Folder.select(:id).where(status:0)
+      @tasks = Task.where(folder_id:release)
+    end
   end
 
   def create
     @task = Task.new(task_params)
-    # url = params[:task][:url]
-    # url = url.last(11)
-    # @task.url = url
   end
 
   def new
