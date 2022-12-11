@@ -11,7 +11,9 @@ class MyTasksController < ApplicationController
     end
     
     def create
-      @task = Task.new(task_params)
+      @mytask = current_user.tasks.new(task_params)
+      @mytask.save
+      
     end
     
     def new
@@ -19,6 +21,7 @@ class MyTasksController < ApplicationController
     end
 
     def edit
+      @mytask = Task.find(params[:id])
     end
     
     def delete
