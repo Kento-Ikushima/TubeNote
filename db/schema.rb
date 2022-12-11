@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_26_071214) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_10_004926) do
   create_table "folders", force: :cascade do |t|
     t.string "folder_name", null: false
     t.integer "status", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_071214) do
     t.integer "folder_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "delete_task"
   end
 
   create_table "users", force: :cascade do |t|
