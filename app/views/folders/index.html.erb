@@ -1,0 +1,14 @@
+<h1>フォルダ一覧</h1>
+  <table>
+    <tr>
+      <th>フォルダ名</th>
+      <th>公開か</th>
+    </tr>
+    <% @folders.each do |folder| %>
+      <tr>
+        <td><%= folder.folder_name %></td>
+        <td><%= folder.status %></td>
+        <td><%= link_to "フォルダ編集", edit_folder_path(folder) %></td>
+      </tr>
+    <% end %>
+  </table>
