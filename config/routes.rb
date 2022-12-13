@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   
+  patch "my_tasks/:id/edit", :to => "my_tasks#update"
   resources :users
   resources :my_tasks
   resources :tasks
