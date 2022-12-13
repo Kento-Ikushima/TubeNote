@@ -1,9 +1,16 @@
 <h1>新規タスク</h1>
-<%= form_for(@mytask) do |f| %>
+<%= form_with model: @mytask, url: my_tasks_path do |f| %>
+
   <div><%= f.label :url %></div>       
   <div><%= f.text_field :url %></div>  
   <div><%= f.label :description %></div>       
-  <div><%= f.text_field :description %></div>  
-  <div><%= f.submit %></div>             
+  <div><%= f.text_field :description %></div> 
+  <div><%= f.label :folder_id %></div>        
+  <div><%= f.text_field :folder_id %></div>  
+
+  <div><%= f.submit %></div>    
+  
+  
+          #ここにフォルダ選択プルタブを作りたい  
 <% end %>
-<%= link_to '戻る', mytasks_path %>
+<%= link_to '戻る', my_tasks_path %>

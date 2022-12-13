@@ -12,12 +12,8 @@ class TasksController < ApplicationController
     end
   end
 
-  def create
-    @task = Task.new(task_params)
-  end
-
-  def new
-    @task = Task.new
+  def edit
+    @mytask = Task.find(params[:id])
   end
 
   def task_params

@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   end
   
   resources :users
+  resources :my_tasks
   resources :tasks
   resources :followings
   resources :followers
   resources :folders
-  resources :my_tasks
   root to: 'my_tasks#index'
   resources :my_tasks do
     collection do
