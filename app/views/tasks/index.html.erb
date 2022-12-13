@@ -1,5 +1,7 @@
 <h1>全ユーザータスク一覧ページ</h1>
 
+<%= link_to "新しいタスクの追加", new_my_task_path %></br>
+
 <tr>
     <th><%= sort_link(@q, :created_at, "作成日順") %></th>
 </tr><br/>
