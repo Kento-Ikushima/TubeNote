@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post"/my_tasks/new",to:"my_tasks#new"
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
