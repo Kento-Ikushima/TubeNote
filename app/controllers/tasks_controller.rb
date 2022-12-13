@@ -12,16 +12,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def create
-    @mytask = current_user.tasks.new(task_params)
-    @mytask.save
-    redirect_to my_tasks_path    
-  end
-
-  def new
-    @task = Task.new
-  end
-
   def edit
     @mytask = Task.find(params[:id])
   end

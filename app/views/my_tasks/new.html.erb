@@ -1,5 +1,6 @@
 <h1>新規タスク</h1>
-<%= form_for(@mytask) do |f| %>
+<%= form_with model: @mytask, url: my_tasks_path do |f| %>
+
   <div><%= f.label :url %></div>       
   <div><%= f.text_field :url %></div>  
   <div><%= f.label :description %></div>       
