@@ -1,4 +1,4 @@
-class MyTasksController < ApplicationController
+class MyTasksMiniController < ApplicationController
   def index
     @q = Task.where(user_id: current_user.id).ransack(params[:q])
       if params[:q]
@@ -30,9 +30,10 @@ class MyTasksController < ApplicationController
   
   def delete
   end
-  
+
   def task_params
     params.require(:task).permit(:url, :description, :user_id, :folder_id)
   end
       
 end
+  

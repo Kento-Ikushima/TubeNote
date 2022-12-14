@@ -1,5 +1,5 @@
 <h1>自分タスク一覧ページ</h1>
-<%= link_to "小さく表示", my_tasks_mini_index_path(@mytasks) %></br>
+<%= link_to "大きく表示", my_tasks_path(@mytask) %></br>
 
 <%= link_to "アカウント編集", edit_user_registration_path %></br>
 
@@ -15,7 +15,7 @@
 
 
   <% @mytasks.each do |mytask| %>
-    <iframe
+    <iframe width = "160" height = "90"
         src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
         frameborder="0" 
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 

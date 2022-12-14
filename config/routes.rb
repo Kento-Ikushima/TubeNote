@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
   
   resources :users
-  resources :my_tasks
+  resources :my_tasks_mini
+  resources :my_tasks  
   resources :tasks
   resources :followings
   resources :followers
