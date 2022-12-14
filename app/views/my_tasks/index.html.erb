@@ -3,6 +3,21 @@
 
 <%= link_to "新しいタスクの追加", new_my_task_path %></br>
 
+
+<script type="text/javascript">
+function resizeWidthOnly( newsize ) {
+	document.getElementById(@mytask).style.width = newsize + "px";
+}
+</script>
+<input type="button" value="小さく表示" onclick="resizeWidthOnly(160);">
+    
+
+# <script>
+# var targetImg = document.getElementById(mytask);
+# targetImg.style.width = "160px";
+# targetImg.style.height = "90px";
+# </script>
+
 <tr>
   <th><%= sort_link(@q, :created_at, "作成日順") %></th>
 </tr></br>
