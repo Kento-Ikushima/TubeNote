@@ -7,15 +7,27 @@
   <th><%= sort_link(@q, :created_at, "作成日順") %></th>
 </tr></br>
 
+<input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
+<input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
+
 <!--検索フォーム-->
 <%= search_form_for @q, url: my_tasks_path do |f| %>
   <%= f.text_field :description_cont %>
   <%= f.submit "検索" %>
 <% end %>
 
+<script>
+function resizeByWidth( nsW, nsH ) {
+  for (i = 1; i<100; i++){
+  var targetImg = document.getElementById(`mytask${i}`);
+   targetImg.width = nsW;
+   targetImg.height = nsH;
+  }
+}
+</script>
 
   <% @mytasks.each do |mytask| %>
-    <iframe
+    <iframe width=384" height="216" id="mytask<%= mytask.id %>"
         src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
         frameborder="0" 
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
