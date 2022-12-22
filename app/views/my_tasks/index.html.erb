@@ -3,6 +3,13 @@
 
 <%= link_to "新しいタスクの追加", new_my_task_path %></br>
 
+<<<<<<< Updated upstream
+=======
+<input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
+<input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
+<%= javascript_tag 'resize' %>
+
+>>>>>>> Stashed changes
 <tr>
   <th><%= sort_link(@q, :created_at, "作成日順") %></th>
 </tr></br>
@@ -27,7 +34,11 @@ function resizeByWidth( nsW, nsH ) {
 </script>
 
   <% @mytasks.each do |mytask| %>
+<<<<<<< Updated upstream
     <iframe width=384" height="216" id="mytask<%= mytask.id %>"
+=======
+    <iframe width="384" height="216" class="mytask"
+>>>>>>> Stashed changes
         src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
         frameborder="0" 
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
