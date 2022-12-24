@@ -30,7 +30,19 @@ class MyTasksController < ApplicationController
       redirect_to my_tasks_path
     end
 
-    def delete
+    def destroy
+      @mytask = Task.find(params[:id])
+      @mytask.destroy
+      redirect_to my_tasks_path
+    end
+
+    def destroy_many
+      checked_date = params[:deletes].keys
+      if Task.destroy(checked_date)
+        redirect_to my_tasks_path
+      else
+        render action: 'index'
+      end
     end
 
     def task_params

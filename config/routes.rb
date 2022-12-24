@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   
+  delete :my_tasks, :to => "my_tasks#destroy_many"
+
   resources :users
   resources :my_tasks
   resources :tasks
