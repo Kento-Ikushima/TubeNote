@@ -17,8 +17,8 @@
   <%= f.submit "検索" %>
 <% end %>
 
-<%= form_with(url: my_tasks_path, method: :delete, local: true) do |g| %>
-<%= g.submit "一括削除" %></br>
+<%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
+<%= f.submit "一括削除" %></br>
 
   <% @mytasks.each do |mytask| %>
     <iframe width="384" height="216" class="mytask"
