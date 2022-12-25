@@ -14,3 +14,5 @@
           #ここにフォルダ選択プルタブを作りたい  
 <% end %>
 <%= link_to '戻る', my_tasks_path %>
+<input type="button" value="コピー" onclick="copyToClipboard()">
+<%= javascript_tag 'copy' %>
