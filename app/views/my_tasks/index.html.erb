@@ -17,6 +17,9 @@
   <%= f.submit "検索" %>
 <% end %>
 
+<%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
+<%= f.submit "一括削除" %></br>
+
   <% @mytasks.each do |mytask| %>
     <iframe width="384" height="216" class="mytask"
         src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
@@ -27,4 +30,8 @@
       </iframe>
       <%= mytask.description %>
       <%= link_to '編集', edit_my_task_path(mytask) %>
+      <%= link_to '削除', my_task_path(mytask), method: :delete %>
+      <%= check_box_tag "deletes[#{ mytask.id }]", mytask.id %>
+  <% end %>
+
   <% end %>
