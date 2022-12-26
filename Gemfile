@@ -44,7 +44,15 @@ gem "tzinfo-data"
 gem "bootsnap", require: false
 gem "bootstrap"
 gem "devise"
+<<<<<<< Updated upstream
 
+=======
+gem "enum_help"
+gem "ransack"
+# gem 'webpacker', '~> 5.0'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+>>>>>>> Stashed changes
 # Use Sass to process CSS
 # gem "sassc-rails"
 
