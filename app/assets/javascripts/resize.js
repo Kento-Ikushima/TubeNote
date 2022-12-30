@@ -1,5 +1,5 @@
 function resizeByWidth( nsW, nsH ) {
-  let targetImg = document.getElementsByClassName('mytask');
+  let targetImg = document.getElementsByClassName('movie');
   console.log(targetImg[0].width = 300);
   for(let i = 0; i < targetImg.length; i++) {
     targetImg[i].width = nsW;
