@@ -27,9 +27,8 @@
     <input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
     <%= javascript_tag 'resize' %>
 
-    <tr>
-      <th><%= sort_link(@q, :created_at, "作成日順") %></th>
-    </tr></br>
+    
+    <%= sort_link(@q, :created_at, "作成日順") %></br>
 
     <%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
       <%= f.submit "一括削除" %></br>
