@@ -1,8 +1,8 @@
 <% stylesheet_link_tag "my_tasks/my_tasks.scss.css" %>
-<h1 class="center">自分タスク一覧ページ</h1>
+<h1 class="text-center">自分タスク一覧ページ</h1>
 
 <!--検索フォーム-->
-<div class="center">
+<div class="text-center">
   <%= search_form_for @q, url: my_tasks_path do |f| %>
     <%= f.text_field :description_cont %>
     <%= f.submit "検索" %>
@@ -34,9 +34,9 @@
     <%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
       <%= f.submit "一括削除" %></br>
 
-      <div class="items row">
+      <div class="mytask-items row">
         <% @mytasks.each do |mytask| %>
-          <div class="item col-sm-4">
+          <div class="item col-sm-12 col-md-3">
             <iframe class="movie"
               src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
               frameborder="0" 
