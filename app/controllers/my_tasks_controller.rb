@@ -37,11 +37,12 @@ class MyTasksController < ApplicationController
     end
 
     def destroy_many
-      checked_date = params[:deletes].keys
-      if Task.destroy(checked_date)
+      unless params[:deletes].nil?
+        checked_date = params[:deletes].keys
+        Task.destroy(checked_date)
         redirect_to my_tasks_path
       else
-        render action: 'index'
+        redirect_to my_tasks_path
       end
     end
 
