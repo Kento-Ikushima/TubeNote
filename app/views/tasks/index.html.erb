@@ -32,14 +32,16 @@
     <div class="mytask-items row">
       <% @tasks.each do |task| %>
         <div class="item col-sm-12 col-md-3">
-          <iframe class="movie"
-            src="https://www.youtube.com/embed/<%= task.url.last(11)%>"
-            <!-- URl末尾のvideo_idの取得 -->
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            >
-          </iframe></br>
+          <div>
+            <iframe class="movie"
+              src="https://www.youtube.com/embed/<%= task.url.last(11)%>"
+              <!-- URl末尾のvideo_idの取得 -->
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              >
+            </iframe>
+          </div>
           <div class="description"><%= task.description %></div>
         </div>
       <% end %>
