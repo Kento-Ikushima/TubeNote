@@ -1,35 +1,59 @@
-<h1>自分タスク一覧ページ</h1>
-<%= link_to "アカウント編集", edit_user_registration_path %></br>
-
-<%= link_to "新しいタスクの追加", new_my_task_path %></br>
-
-<input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
-<input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
-<%= javascript_tag 'resize' %>
-
-<%= sort_link(@q, :created_at, "作成日順") %></br>
+<% stylesheet_link_tag "my_tasks/my_tasks.scss.css" %>
+<h1 class="text-center">自分タスク一覧ページ</h1>
 
 <!--検索フォーム-->
-<%= search_form_for @q, url: my_tasks_path do |f| %>
-  <%= f.text_field :description_cont %>
-  <%= f.submit "検索" %>
-<% end %>
-
-<%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
-<%= f.submit "一括削除" %></br>
-
-  <% @mytasks.each do |mytask| %>
-    <iframe width="384" height="216" class="mytask"
-        src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
-        frameborder="0" 
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-      >
-      </iframe>
-      <%= mytask.description %>
-      <%= link_to '編集', edit_my_task_path(mytask) %>
-      <%= link_to '削除', my_task_path(mytask), method: :delete %>
-      <%= check_box_tag "deletes[#{ mytask.id }]", mytask.id %>
+<div class="text-center">
+  <%= search_form_for @q, url: my_tasks_path do |f| %>
+    <%= f.text_field :description_cont %>
+    <%= f.submit "検索" %>
   <% end %>
+</div>
 
-  <% end %>
+<div class="wrapper">
+  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link active fa fa-home fa-3x" href="/my_tasks" title="自分のタスク"></a></li>
+      <li class="nav-item"><a class="nav-link fa fa-plus-square-o fa-3x" href="/my_tasks/new" title="新しいタスク"></a></li>
+      <li class="nav-item"><a class="nav-link fa fa-user-circle-o fa-3x" href="/users/edit" title="アカウント編集"></a></li>
+      <li class="nav-item"><a class="nav-link fa fa-users fa-3x" href="/tasks" title="全ユーザーのタスク" ></a></li>
+      <li class="nav-item"><a class="nav-link fa fa-folder-open-o fa-3x" href="/folders" title="フォルダ一覧"></a></li>
+      <li class="nav-item"><a class="nav-link fa fa-handshake-o fa-3x" href="#" title="フォロワー確認"></a></li>
+    </ul>
+  </nav>
+
+
+  <div class="article">
+    <input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
+    <input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
+    <%= javascript_tag 'resize' %>
+
+    
+    <%= sort_link(@q, :created_at, "作成日順") %></br>
+
+    <%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
+      <%= f.submit "一括削除" %></br>
+
+      <div class="mytask-items row">
+        <% @mytasks.each do |mytask| %>
+          <div class="item col-sm-12 col-md-3">
+            <iframe class="movie"
+              src="https://www.youtube.com/embed/<%= mytask.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
+              frameborder="0" 
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+            >
+            </iframe></br>
+            <div class="memo">
+              <div class="description"><%= mytask.description %></div>
+              <div class="d-flex justify-content-between align-items-center">
+                <%= link_to '編集', edit_my_task_path(mytask), class: "btn btn-sm btn-outline-secondary" %>
+                <%= link_to '削除', my_task_path(mytask), method: :delete, class: "btn btn-sm btn-outline-secondary" %>
+                <%= check_box_tag "deletes[#{ mytask.id }]", mytask.id %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

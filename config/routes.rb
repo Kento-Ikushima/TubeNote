@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   
   delete :my_tasks, :to => "my_tasks#destroy_many"
-
+  delete :folders, :to => "folders#destroy_many"
   resources :users
   resources :my_tasks
   resources :tasks

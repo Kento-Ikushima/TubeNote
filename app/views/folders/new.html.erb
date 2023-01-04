@@ -1,0 +1,9 @@
+<h1>フォルダ作成</h1>
+<%= form_for(@folder) do |f| %>
+  <div><%= f.label :フォルダ名 %></div>       
+  <div><%= f.text_field :folder_name %></div>  
+  <div><%= f.label :公開か %></div>       
+  <div><%= f.select :status, [["公開", "release"], ["非公開", "close"]] %></div>  
+  <div><%= f.submit"作成" %></div>             
+<% end %>
+  
