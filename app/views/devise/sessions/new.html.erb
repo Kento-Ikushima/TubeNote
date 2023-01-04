@@ -1,6 +1,5 @@
 <body class="text-center main">
   <div class="container">
-    <form class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -34,6 +33,5 @@
 
       <%= render "devise/shared/links" %>
 
-    </form>
   </div>
 </body>
