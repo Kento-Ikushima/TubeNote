@@ -1,4 +1,7 @@
-body{
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.main{
     height: 500px;
     display: flex;
     align-items: center;

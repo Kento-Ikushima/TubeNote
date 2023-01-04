@@ -7,9 +7,7 @@
 <input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
 <%= javascript_tag 'resize' %>
 
-<tr>
-  <th><%= sort_link(@q, :created_at, "作成日順") %></th>
-</tr></br>
+<%= sort_link(@q, :created_at, "作成日順") %></br>
 
 <!--検索フォーム-->
 <%= search_form_for @q, url: my_tasks_path do |f| %>
