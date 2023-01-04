@@ -1,4 +1,6 @@
 <h1>フォルダ一覧</h1>
+  <%= form_with(url: folders_path, method: :delete, local: true) do |f| %>
+  <%= f.submit "一括削除" %></br>
   <table>
     <tr>
       <th>フォルダ名</th>
@@ -9,6 +11,9 @@
         <td><%= folder.folder_name %></td>
         <td><%= folder.status %></td>
         <td><%= link_to "フォルダ編集", edit_folder_path(folder) %></td>
+        <td><%= link_to '削除', folder_path(folder), method: :delete %></td>
+        <td><%= check_box_tag "deletes[#{ folder.id }]", folder.id %></td>
       </tr>
     <% end %>
   </table>
+  <% end %>

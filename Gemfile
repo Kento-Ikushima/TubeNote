@@ -47,6 +47,7 @@ gem "devise"
 gem "enum_help"
 gem "ransack"
 gem "jquery-rails"
+gem 'font-awesome-rails'
 
 # Use Sass to process CSS
 gem "sassc-rails"
