@@ -1,4 +1,5 @@
 <h1>フォルダ一覧</h1>
+  <%= render 'shared/nav' %>
   <%= form_with(url: folders_path, method: :delete, local: true) do |f| %>
   <%= f.submit "一括削除" %></br>
   <table>
