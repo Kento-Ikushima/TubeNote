@@ -1,4 +1,3 @@
-<% stylesheet_link_tag "my_tasks/my_tasks.scss.css" %>
 <h1 class="text-center">全ユーザータスク一覧ページ</h1>
 
 <!--検索フォーム-->
@@ -24,14 +23,11 @@
     </ul>
   </nav>
 
-  <div class="article">
+  <div class="block">
     <input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
     <input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
 
-
-    <tr>
-      <th><%= sort_link(@q, :created_at, "作成日順") %></th>
-    </tr><br/>
+    <%= sort_link(@q, :created_at, "作成日順") %><br/>
 
     <div class="mytask-items row">
       <% @tasks.each do |task| %>
