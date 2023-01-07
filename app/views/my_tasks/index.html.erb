@@ -1,26 +1,16 @@
 <% stylesheet_link_tag "my_tasks/my_tasks.scss.css" %>
-<h1 class="text-center">自分タスク一覧ページ</h1>
+<h1 class="text-center">My Tasks</h1>
 
 <!--検索フォーム-->
 <div class="text-center">
   <%= search_form_for @q, url: my_tasks_path do |f| %>
     <%= f.text_field :description_cont %>
-    <%= f.submit "検索" %>
+    <%= f.submit "Search" %>
   <% end %>
 </div>
 
 <div class="wrapper">
-  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-    <ul class="nav flex-column">
-      <li class="nav-item"><a class="nav-link active fa fa-home fa-3x" href="/my_tasks" title="自分のタスク"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-plus-square-o fa-3x" href="/my_tasks/new" title="新しいタスク"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-user-circle-o fa-3x" href="/users/edit" title="アカウント編集"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-users fa-3x" href="/tasks" title="全ユーザーのタスク" ></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-folder-open-o fa-3x" href="/folders" title="フォルダ一覧"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-handshake-o fa-3x" href="#" title="フォロワー確認"></a></li>
-    </ul>
-  </nav>
-
+  <%= render 'shared/nav' %>
 
   <div class="article">
     <input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
@@ -28,10 +18,10 @@
     <%= javascript_tag 'resize' %>
 
     
-    <%= sort_link(@q, :created_at, "作成日順") %></br>
+    <%= sort_link(@q, :created_at, "Created date") %></br>
 
     <%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
-      <%= f.submit "一括削除" %></br>
+      <%= f.submit "Bulk deletion" %></br>
 
       <div class="mytask-items row">
         <% @mytasks.each do |mytask| %>
