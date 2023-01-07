@@ -1,10 +1,10 @@
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <ul class="nav flex-column">
-      <li class="nav-item"><a class="nav-link active fa fa-home fa-3x" href="/my_tasks" title="自分のタスク"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-plus-square-o fa-3x" href="/my_tasks/new" title="新しいタスク"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-user-circle-o fa-3x" href="/users/edit" title="アカウント編集"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-users fa-3x" href="/tasks" title="全ユーザーのタスク" ></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-folder-open-o fa-3x" href="/folders" title="フォルダ一覧"></a></li>
-      <li class="nav-item"><a class="nav-link fa fa-handshake-o fa-3x" href="#" title="フォロワー確認"></a></li>
+      <li class="nav-item"><%= link_to "", "/my_tasks", class: "nav-link active fa fa-home fa-3x", title: "mytask" %></li>
+      <li class="nav-item"><%= link_to "", "/my_tasks/new", class: "nav-link fa fa-plus-square-o fa-3x", title: "new task" %></li>
+      <li class="nav-item"><%= link_to "", "/users/edit", class: "nav-link fa fa-user-circle-o fa-3x", title: "account" %></li>
+      <li class="nav-item"><%= link_to "", "/tasks", class: "nav-link fa fa-users fa-3x", title: "all user task" %></li>
+      <li class="nav-item"><%= link_to "", "/folders", class: "nav-link fa fa-folder-open-o fa-3x", title: "folder" %></li>
+      <li class="nav-item"><%= link_to "", "#", class: "nav-link fa fa-handshake-o fa-3x", title: "follower" %></li>
     </ul>
   </nav>

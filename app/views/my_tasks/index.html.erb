@@ -1,11 +1,11 @@
 <% stylesheet_link_tag "my_tasks/my_tasks.scss.css" %>
-<h1 class="text-center">自分タスク一覧ページ</h1>
+<h1 class="text-center">My Tasks</h1>
 
 <!--検索フォーム-->
 <div class="text-center">
   <%= search_form_for @q, url: my_tasks_path do |f| %>
     <%= f.text_field :description_cont %>
-    <%= f.submit "検索" %>
+    <%= f.submit "Search" %>
   <% end %>
 </div>
 
@@ -18,10 +18,10 @@
     <%= javascript_tag 'resize' %>
 
     
-    <%= sort_link(@q, :created_at, "作成日順") %></br>
+    <%= sort_link(@q, :created_at, "Created date") %></br>
 
     <%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
-      <%= f.submit "一括削除" %></br>
+      <%= f.submit "Bulk deletion" %></br>
 
       <div class="mytask-items row">
         <% @mytasks.each do |mytask| %>
