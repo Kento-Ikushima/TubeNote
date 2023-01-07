@@ -1,28 +1,40 @@
-<h1>全ユーザータスク一覧ページ</h1>
-
-<%= render 'shared/nav' %>
-
-<input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
-<input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
-
-<tr>
-    <th><%= sort_link(@q, :created_at, "作成日順") %></th>
-</tr><br/>
+<h1 class="text-center">全ユーザータスク一覧ページ</h1>
 
 <!--検索フォーム-->
-<%= search_form_for @q, url: tasks_path do |f| %>
-<%= f.text_field :description_cont %>
-<%= f.submit "検索" %>
-<% end %>
-<% if @tasks.empty? %>
-  <p>検索結果はありません</p>
-<% end %>
-<% @tasks.each do |task| %>
-<iframe width="384" height="216" class="mytask"
-    src="https://www.youtube.com/embed/<%= task.url.last(11)%>"
-    <!-- URl末尾のvideo_idの取得 -->
-    frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen="allowfullscreen"></iframe>
-<%= task.description %>
-<% end %>
+<div class="text-center">
+  <%= search_form_for @q, url: tasks_path do |f| %>
+    <%= f.text_field :description_cont %>
+    <%= f.submit "検索" %>
+  <% end %>
+  <% if @tasks.empty? %>
+    <p>検索結果はありません</p>
+  <% end %>
+</div>
+
+<div class="wrapper">
+　<%= render 'shared/nav' %>
+  <div class="block">
+    <input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
+    <input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
+
+    <%= sort_link(@q, :created_at, "作成日順") %><br/>
+
+    <div class="mytask-items row">
+      <% @tasks.each do |task| %>
+        <div class="item col-sm-12 col-md-3">
+          <div>
+            <iframe class="movie"
+              src="https://www.youtube.com/embed/<%= task.url.last(11)%>"
+              <!-- URl末尾のvideo_idの取得 -->
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              >
+            </iframe>
+          </div>
+          <div class="description"><%= task.description %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
