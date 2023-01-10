@@ -1,4 +1,6 @@
 class TasksController < ApplicationController    
+before_action :authenticate_user!, except: [:index]
+  
   # localhost:3000/tasks
   def index
     @q = Task.ransack(params[:q])
