@@ -1,5 +1,6 @@
 class MyTasksController < ApplicationController
-    
+ before_action :authenticate_user!
+
     def index
       # debugger  todo:動かない
       @q = Task.where(user_id: current_user.id).ransack(params[:q])
