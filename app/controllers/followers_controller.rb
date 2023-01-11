@@ -1,17 +1,19 @@
 class FollowersController < ApplicationController
-    def index
-    end
+  before_action :authenticate_user!
+  
+  def index
+  end
     
-    def create
-    end
+  def create
+  end
     
-    def new
-    end
+  def new
+  end
 
-    def edit
-    end
+  def edit
+  end
     
-    def delete
-    end
+  def delete
+  end
     
 end
