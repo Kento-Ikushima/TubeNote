@@ -1,20 +1,26 @@
-<h1>フォルダ一覧</h1>
+<h1 class="text-center">My Folder</h1>
+<div class="wrapper text-center">
   <%= render 'shared/nav' %>
   <%= form_with(url: folders_path, method: :delete, local: true) do |f| %>
-  <%= f.submit "一括削除" %></br>
-  <table>
-    <tr>
-      <th>フォルダ名</th>
-      <th>公開か</th>
-    </tr>
-    <% @folders.each do |folder| %>
+    <%= f.submit "Bluk deletion" %><br />
+    <%= link_to "Folder New", new_folder_path %>
+    <table class="table table-striped table-sm">
       <tr>
-        <td><%= folder.folder_name %></td>
-        <td><%= folder.status %></td>
-        <td><%= link_to "フォルダ編集", edit_folder_path(folder) %></td>
-        <td><%= link_to '削除', folder_path(folder), method: :delete %></td>
-        <td><%= check_box_tag "deletes[#{ folder.id }]", folder.id %></td>
+        <th>Folder Name</th>
+        <th>Release?</th>
+        <th></th>
+        <th></th>
+        <th>Many Delete</th>
       </tr>
-    <% end %>
-  </table>
+      <% @folders.each do |folder| %>
+        <tr>
+          <td><%= folder.folder_name %></td>
+          <td><%= folder.status %></td>
+          <td><%= link_to "edit", edit_folder_path(folder) %></td>
+          <td><%= link_to 'delete', folder_path(folder), method: :delete %></td>
+          <td><%= check_box_tag "deletes[#{ folder.id }]", folder.id %></td>
+        </tr>
+      <% end %>
+    </table>
   <% end %>
+</div>

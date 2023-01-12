@@ -1,50 +1,61 @@
-<h2>アカウント情報編集</h2>
-<%= render 'shared/nav' %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :name, "ユーザー名" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+<div class="text-center main">
+  <div class="container">
+    <h1 class="h3 mb-3 font-weight-normal">Account Edit</h1>
+    <div class="wrapper">
+      <%= render 'shared/nav' %>
+      <div class="block text-center">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            
+            <div class="field">
+              <div class="sr-only"><%= f.label :name %></div><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "name" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="field">
+              <div class="sr-only"><%= f.label :email %></div><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
+            </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
 
-  <div class="field">
-    <%= f.label :self_introduction, "コメント" %><br />
-    <%= f.text_field :self_introduction, autofocus: true, autocomplete: "self_introduction" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password, "パスワード変更" %> <i>(変更したい場合)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+            <div class="field">
+              <div class="sr-only"><%= f.label :self_introduction %></div><br />
+              <%= f.text_field :self_introduction, autofocus: true, autocomplete: "self_introduction", placeholder: "self_introduction" %>
+            </div>
+            
+            <div class="field">
+              <div class="sr-only"><%= f.label :password %> <i>(変更したい場合)</i></div><br />
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: "new-password" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em><%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード変更（確認）" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+            <div class="field">
+              <div class="sr-only"><%= f.label :password_confirmation %></div><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "new-password" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :current_password, "今のパスワード" %> <i>(変更にはパスワードが必要です)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+            <div class="field">
+              <div class="sr-only"><%= f.label :current_password %> <i>(変更にはパスワードが必要です)</i></div><br />
+              <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "current-password" %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "変更" %>
-  </div>
-<% end %>
+            <div class="actions btn">
+              <%= f.submit "Submit" %>
+            </div>
 
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<%= link_to "マイページ", :back %>
+          <% end %>
+
+          <%= link_to "Sign-Out", destroy_user_session_path, method: :delete %>
+          <%= link_to "My-Task", :back %>
+
+        </div>
+      </div>
+    </div>       
+  </div>
+</div>

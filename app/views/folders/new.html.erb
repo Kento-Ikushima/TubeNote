@@ -1,10 +1,11 @@
-<h1>フォルダ作成</h1>
-<%= render 'shared/nav' %>
-<%= form_for(@folder) do |f| %>
-  <div><%= f.label :フォルダ名 %></div>       
-  <div><%= f.text_field :folder_name %></div>  
-  <div><%= f.label :公開か %></div>       
-  <div><%= f.select :status, [["公開", "release"], ["非公開", "close"]] %></div>  
-  <div><%= f.submit"作成" %></div>             
-<% end %>
-  
+<h1 class="text-center">New Folder</h1>
+<div class="wrapper text-center">
+  <%= render 'shared/nav' %>
+  <%= form_for(@folder) do |f| %>
+    <div><%= f.label :Folder_name %></div>       
+    <div><%= f.text_field :folder_name %></div>  
+    <div><%= f.label :status %></div>       
+    <div><%= f.select :status, [["release", "release"], ["close", "close"]] %></div>  
+    <div><%= f.submit"Submit" %></div>             
+  <% end %>
+</div>
