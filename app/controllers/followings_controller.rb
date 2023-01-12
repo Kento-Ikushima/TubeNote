@@ -1,17 +1,19 @@
 class FollowingsController < ApplicationController
-    def index
-    end
-    
-    def create
-    end
-    
-    def new
-    end
+  before_action :authenticate_user!    
 
-    def edit
-    end
-    
-    def delete
-    end
-    
+  def index
+  end
+
+  def create
+  end
+
+  def new
+  end
+
+  def edit
+  end
+
+  def delete
+  end
+
 end
