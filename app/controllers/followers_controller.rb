@@ -1,17 +1,18 @@
 class FollowersController < ApplicationController
-    def index
-    end
+  def index
+  end
     
-    def create
-    end
+  def create
     
-    def new
-    end
+  end
+    
+  def new
+  end
 
-    def edit
-    end
+  def edit
+  end
     
-    def delete
-    end
+  def delete
+  end
     
 end
