@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <%= render 'shared/nav' %>
+  <div class="block">
+    <% if user_signed_in? %>
+      <h2>All Users</h2>
+      <% User.all.where.not(id: current_user.id).each do |user| %>
+        <p>
+          <%= "name: #{user.name} self_introduction: #{user.self_introduction}" %>
+          <% if current_user.following?(user) %>
+            <%= link_to 'unfollow', unfollow_path(user.id), method: :POST %>
+          <% else %>
+            <%= link_to 'follow', follow_path(user.id), method: :POST %>
+          <% end %>
+          <%= link_to "show", user_path(user) %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
