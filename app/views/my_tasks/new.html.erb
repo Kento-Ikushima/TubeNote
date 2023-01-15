@@ -3,18 +3,14 @@
   <%= render 'shared/nav' %>
   <div class="block text-center">
     <%= form_with model: @mytask, url: my_tasks_path do |f| %>
-
       <div><%= f.label :url %></div>       
       <div><%= f.text_field :url %></div>  
       <div><%= f.label :description %></div>       
       <div><%= f.text_field :description %></div> 
       <div><%= f.label :folder_id %></div>        
-      <div><%= f.text_field :folder_id %></div>  
-
+      <div><%= f.collection_select :folder_id, Folder.all, :id, :folder_name %></div>  
       <div><%= f.submit %></div>    
-      
-              #ここにフォルダ選択プルタブを作りたい  
     <% end %>
-    <%= link_to '戻る', my_tasks_path %>
+    <%= link_to 'Back', my_tasks_path %>
   </div>
 </div>
