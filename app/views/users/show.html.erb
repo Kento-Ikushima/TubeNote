@@ -1,21 +1,21 @@
 <div class="wrapper">
   <%= render 'shared/nav' %>
   <div class="block">
-    <p><%= "name: #{@user.name}" %></p>
-    <p><%= "self_introduction: #{@user.self_introduction}" %></p>
-    <p><%= "follow count: #{@user.follower.count}" %></p>
-    <p><%= "follower count: #{@user.followed.count}" %></p>
-    <% unless @user == current_user %>
-      <% if current_user.following?(@user) %>
-        <%= link_to 'unfollow', unfollow_path(@user.id), method: :POST %>
+    <p><%= "name: #{@other_user.name}" %></p>
+    <p><%= "self_introduction: #{@other_user.self_introduction}" %></p>
+    <p><%= "follow count: #{@other_user.follower.count}" %></p>
+    <p><%= "follower count: #{@other_user.followed.count}" %></p>
+    <% if @other_user !== current_user %>
+      <% if current_user.following?(@other_user) %>
+        <%= link_to 'unfollow', unfollow_path(@other_user.id), method: :POST %>
       <% else %>
-        <%= link_to 'follow', follow_path(@user.id), method: :POST %>
+        <%= link_to 'follow', follow_path(@other_user.id), method: :POST %>
       <% end %>
     <% end %>
 
 
     <h2>Follow</h2>
-    <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+    <% @other_user.following_user.where.not(id: current_user.id).each do |user| %>
       <p>
         <%= "name: #{user.name} self_introduction: #{user.self_introduction}" %>
         <% if current_user.following?(user) %>
@@ -28,7 +28,7 @@
     <% end %>
     
     <h2>Follower</h2>
-    <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+    <% @other_user.follower_user.where.not(id: current_user.id).each do |user| %>
       <p>
         <%= "name: #{user.name} self_introduction: #{user.self_introduction}" %>
         <% if current_user.following?(user) %>
