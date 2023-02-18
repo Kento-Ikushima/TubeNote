@@ -22,7 +22,7 @@
           </div>
 
           <div class="field">
-            <div class="sr-only"><%= f.label :password %>
+            <div class="sr-only"><%= f.label :password %></div>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
@@ -31,7 +31,7 @@
 
           <div class="field">
             <div class="sr-only"><%= f.label :password_confirmation %></div><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "new-password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "password_confirmation", placeholder: "password_confirmation" %>
           </div>
 
           <div class="actions">
