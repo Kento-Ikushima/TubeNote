@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :followings
   has_many :followers
+
+  validates :name, presence: true
 end
