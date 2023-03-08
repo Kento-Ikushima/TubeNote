@@ -9,7 +9,5 @@ class User < ApplicationRecord
   has_many :followings
   has_many :followers
 
-  validates :email, presence: true
   validates :name, presence: true
-  validates :password, presence: true
 end
