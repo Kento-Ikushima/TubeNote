@@ -17,10 +17,10 @@
     <%= javascript_tag 'resize' %>
 
     
-    <%= sort_link(@q, :created_at, "Created date") %></br>
+    <%= sort_link(@q, :created_at, "Created date") %><br />
 
     <%= form_with(url: my_tasks_path, method: :delete, local: true) do |f| %>
-      <%= f.submit "Bulk deletion" %></br>
+      <%= f.submit "Bulk deletion" %><br />
 
       <div class="mytask-items row">
         <% @mytasks.each do |mytask| %>
@@ -31,7 +31,7 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen
             >
-            </iframe></br>
+            </iframe><br />
             <div class="memo">
               <div class="description"><%= mytask.description %></div>
               <div class="d-flex justify-content-between align-items-center">

@@ -23,6 +23,7 @@ class MyTasksController < ApplicationController
 
   def edit
     @mytask = Task.find(params[:id])
+    @my_folders = Folder.where(user_id: current_user)
   end
   
   def update

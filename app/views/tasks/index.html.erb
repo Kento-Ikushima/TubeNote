@@ -17,7 +17,7 @@
     <input type="button" value="小さく" onclick="resizeByWidth(160, 90);">
     <input type="button" value="大きく" onclick="resizeByWidth(384, 216);">
 
-    <%= sort_link(@q, :created_at, "作成日順") %><br/>
+    <%= sort_link(@q, :created_at, "Created date") %><br/>
 
     <div class="mytask-items row">
       <% @tasks.each do |task| %>
