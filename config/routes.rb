@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   resources :users
   resources :my_tasks
   resources :tasks
-  resources :followings
-  resources :followers
   resources :folders
   root to: 'my_tasks#index'
   resources :my_tasks do
@@ -29,4 +27,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  post 'follow/:id' => 'relationships#follow', as: 'follow' 
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' 
+  resources :users, only: :show
 end

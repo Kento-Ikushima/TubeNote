@@ -9,8 +9,8 @@ class TasksController < ApplicationController
       @tasks = @q.result(distinct: true)
     else
       # 一覧を表示する(公開設定フォルダの中身のみ)
-      release = Folder.select(:id).where(status:0)
-      @tasks = Task.where(folder_id:release)
+      release = Folder.select(:id).where(status: 0)
+      @tasks = Task.where(folder_id: release)
     end
   end
 

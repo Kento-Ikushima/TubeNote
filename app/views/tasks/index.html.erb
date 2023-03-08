@@ -23,6 +23,7 @@
       <% @tasks.each do |task| %>
         <div class="item col-sm-12 col-md-3">
           <div>
+            <%= link_to "#{task.user.name}", user_path(task.user) %>
             <iframe class="movie"
               src="https://www.youtube.com/embed/<%= task.url.last(11)%>"
               <!-- URl末尾のvideo_idの取得 -->

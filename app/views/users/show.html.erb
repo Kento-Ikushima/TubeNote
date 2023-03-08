@@ -1,0 +1,61 @@
+<div class="wrapper">
+  <%= render 'shared/nav' %>
+  <div class="block">
+    <p><%= "name: #{@other_user.name}" %></p>
+    <p><%= "self_introduction: #{@other_user.self_introduction}" %></p>
+    <p><%= "follow count: #{@other_user.follower.count}" %></p>
+    <p><%= "follower count: #{@other_user.followed.count}" %></p>
+    <% unless @other_user == current_user %>
+      <% if current_user.following?(@other_user) %>
+        <%= link_to 'unfollow', unfollow_path(@other_user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'follow', follow_path(@other_user.id), method: :POST %>
+      <% end %>
+    <% end %>
+
+
+    <h2>Follow</h2>
+    <% @following_user.each do |user| %>
+      <p>
+        <%= "name: #{user.name} self_introduction: #{user.self_introduction}" %>
+        <% if current_user.following?(user) %>
+          <%= link_to 'unfollow', unfollow_path(user.id), method: :POST %>
+        <% else %>
+          <%= link_to 'follow', follow_path(user.id), method: :POST %>
+        <% end %>
+        <%= link_to "show", user_path(user) %>
+      </p>
+    <% end %>
+    
+    <h2>Follower</h2>
+    <% @follower_user.each do |user| %>
+      <p>
+        <%= "name: #{user.name} self_introduction: #{user.self_introduction}" %>
+        <% if current_user.following?(user) %>
+          <%= link_to 'unfollow', unfollow_path(user.id), method: :POST %>
+        <% else %>
+          <%= link_to 'follow', follow_path(user.id), method: :POST %>
+        <% end %>
+        <%= link_to "show", user_path(user) %>
+      </p>
+    <% end %>
+
+    <h2>Tasks</h2>
+    <div class="mytask-items row">
+      <% @tasks.each do |task| %>
+        <div class="item col-sm-12 col-md-3">
+          <iframe class="movie"
+            src="https://www.youtube.com/embed/<%= task.url.last(11)%>" <!-- URl末尾のvideo_idの取得 -->
+            frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+          >
+          </iframe><br />
+          <div class="memo">
+            <div class="description"><%= task.description %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
